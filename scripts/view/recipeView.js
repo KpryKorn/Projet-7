@@ -25,19 +25,13 @@ export class ViewRecipes {
 
     if (recipesToShow) {
       recipesToShow.forEach((recipe) => {
-        // Je normalise le nom de la recette pour pouvoir l'utiliser dynamiquement comme nom d'image
-        const imageName = recipe.name
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .split(" ")
-          .join("-");
-
         // Je crée une div pour chaque recette et je l'insère dans la div recipes-zone
         this.recipeSnippet.innerHTML += `
         <div id="card-container" class="col-12 col-lg-4">
                     <article class="card h-100 border-0">
-                        <img src="./assets/images/${imageName}.webp" alt="photo de ${
+                        <img src="./assets/images/${
+                          recipe.image
+                        }" alt="photo de ${
           recipe.name
         }" class="card-img-top" height="178px">
                         <div class="card-body rounded-bottom">
