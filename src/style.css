@@ -32,6 +32,8 @@ header {
   justify-content: center;
   height: 670px;
   background-image: url(../assets/images/couverture-petits-plats.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* Style du header */
@@ -84,6 +86,7 @@ header {
 
 .card {
   transition: transform 0.5s ease-in-out;
+  height: 500px;
 }
 
 .ingredients-list {
