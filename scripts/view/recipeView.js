@@ -28,7 +28,7 @@ export class ViewRecipes {
         // Je crée une div pour chaque recette et je l'insère dans la div recipes-zone
         this.recipeSnippet.innerHTML += `
         <div id="card-container" class="col-12 col-lg-4">
-                    <article class="card h-100 border-0">
+                    <article class="card border-0">
                         <img src="./assets/images/${
                           recipe.image
                         }" alt="photo de ${
@@ -60,9 +60,6 @@ export class ViewRecipes {
                                       })
                                       .join("")}
                                 </ul>
-                                <p class="recipe-description w-50 ps-2">
-                                    ${recipe.description}
-                                </p>
                             </div>
                         </div>
                     </article>
