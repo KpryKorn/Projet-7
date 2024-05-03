@@ -86,10 +86,12 @@ header {
 
 .card {
   transition: transform 0.5s ease-in-out;
-  height: 500px;
+  height: 730px;
 }
 
-.ingredients-list {
+.ingredients-list.flex {
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding-left: 0;
   font-size: 12px;
@@ -110,7 +112,19 @@ header {
 }
 
 .card-title {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.text-recette {
+  font-size: 0.8rem;
+}
+
+.ingr-flex {
+  width: 100%;
+  max-width: 160px;
+  margin-inline: 5px;
+  margin-block: 5px;
 }
 
 #time-value {
@@ -124,6 +138,17 @@ header {
 
 .card-img-top {
   object-fit: cover;
+  position: relative;
+}
+
+.recipe-time {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: #ffd15b;
+  border-radius: 20px;
+  font-size: 0.8rem;
 }
 
 .recipe-description,

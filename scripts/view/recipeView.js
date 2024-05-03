@@ -1,3 +1,5 @@
+import createRecipeElement from "../utils/createRecipe.js";
+
 export class ViewRecipes {
   constructor(controller) {
     this.controller = controller;
@@ -25,46 +27,7 @@ export class ViewRecipes {
 
     if (recipesToShow) {
       recipesToShow.forEach((recipe) => {
-        // Je crée une div pour chaque recette et je l'insère dans la div recipes-zone
-        this.recipeSnippet.innerHTML += `
-        <div id="card-container" class="col-12 col-lg-4">
-                    <article class="card border-0">
-                        <img src="./assets/images/${
-                          recipe.image
-                        }" alt="photo de ${
-          recipe.name
-        }" class="card-img-top" height="178px">
-                        <div class="card-body rounded-bottom">
-                            <div id="recipe-name-time" class="d-flex flex-row justify-content-between">
-                                <h2 class="card-title w-75">${recipe.name}</h2>
-                                <div class="recipe-time text-nowrap">
-                                    <span class="timeIcon me-1">
-                                        <img src="./assets/icons/time.svg" alt="icone d'horloge">
-                                    </span>
-                                    <span id="timeValue" class="smallFont">${
-                                      recipe.time
-                                    } min</span>
-                                </div>
-                            </div>
-                            <div class="card-text py-2 d-flex flex-row heightFix">
-                                <ul class="ingredients-list w-50 pe-2">
-                                    ${recipe.ingredients
-                                      .map((ingredient) => {
-                                        return `<li>${ingredient.ingredient}: ${
-                                          ingredient.quantity
-                                            ? ingredient.quantity
-                                            : ""
-                                        } ${
-                                          ingredient.unit ? ingredient.unit : ""
-                                        }</li>`;
-                                      })
-                                      .join("")}
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                </div>        
-        `;
+        this.recipeSnippet.innerHTML += createRecipeElement(recipe);
       });
     }
   }
