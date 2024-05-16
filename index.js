@@ -45,5 +45,5 @@ function init() {
   search();
 }
 
-// Appel de la fonction d'initialisation après chargement du DOM
+// lance les fonctions précédentes après chargement du DOM
 window.addEventListener("DOMContentLoaded", init);
