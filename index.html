@@ -2,189 +2,213 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Les Petits Plats</title>
-    <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.png" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
     />
-    <link rel="stylesheet" href="./src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
   </head>
 
   <body>
-    <header class="text-center">
-      <h1 id="hero-txt">
-        CHERCHEZ PARMI PLUS DE 1500 RECETTES <br />DU QUOTIDIEN, SIMPLES ET
-        DÉLICIEUSES
-      </h1>
-      <div id="search-zone" class="container mt-3">
-        <div class="input-group-sm">
-          <div class="input-box mx-auto">
-            <label id="mainSearchLabel" for="mainSearch" class="sr-only"
-              >Recherche principale</label
-            >
-            <input
-              id="mainSearch"
-              type="text"
-              class="form-control border-0 mb-4"
-              placeholder="Rechercher une recette"
-              aria-labelledby="mainSearchLabel"
+    <header class="bg-img text-white p-5">
+      <img
+        id="logo"
+        src="./assets/img/Logo.png"
+        alt="Logo Les Petits Plats"
+        height="40"
+        width="330"
+      />
+      <div class="header-block">
+        <p>
+          Cherchez parmi plus de 1500 recettes<br />du quotidien, simples et
+          délicieuses
+        </p>
+        <form id="searchbar">
+          <input
+            class="form-control form-control-lg me-2"
+            type="search"
+            aria-label="Chercher une recette ou un ingrédient"
+            placeholder="Chercher une recette, un ingrédient, ..."
+          />
+          <svg
+            class="svgBtn"
+            width="25"
+            height="25"
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15 15L8.5 8.5M8.5 8.5L2 2M8.5 8.5L15 2M8.5 8.5L2 15"
+              stroke="#7A7A7A"
+              stroke-width="2.16667"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             />
-            <img
-              src="./assets/icons/search.svg"
-              alt="icone loupe de la zone de recherche"
-            />
-          </div>
-        </div>
+          </svg>
+          <button class="btn" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
       </div>
     </header>
-    <main class="container mt-3">
-      <div
-        id="tags-zone"
-        class="mt3 d-flex flex-wrap flex-row justify-content-start align-items-center"
-      ></div>
+    <main>
+      <nav class="navigation-bar px-5">
+        <ul>
+          <li class="dropdown">
+            <button class="dropbtn">
+              Ingrédients
+              <span class="arrow-down"></span>
+            </button>
+            <div class="dropdown-content">
+              <div class="input-group">
+                <input type="text" name="ingredientField" />
+                <svg
+                  class="croce"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="5"
+                    cy="5"
+                    r="4.75"
+                    stroke="#7A7A7A"
+                    stroke-width="0.5"
+                  />
+                  <line
+                    x1="9.17678"
+                    y1="9.32322"
+                    x2="13.6768"
+                    y2="13.8232"
+                    stroke="#7A7A7A"
+                    stroke-width="0.5"
+                  />
+                </svg>
+              </div>
+              <ul id="ingredientSelected"></ul>
+              <ul id="ingredient"></ul>
+            </div>
+          </li>
+          <li class="dropdown">
+            <button class="dropbtn">
+              Appareils
+              <span class="arrow-down"></span>
+            </button>
+            <div class="dropdown-content">
+              <div class="input-group">
+                <input type="text" name="applianceField" />
+                <svg
+                  class="croce"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="5"
+                    cy="5"
+                    r="4.75"
+                    stroke="#7A7A7A"
+                    stroke-width="0.5"
+                  />
+                  <line
+                    x1="9.17678"
+                    y1="9.32322"
+                    x2="13.6768"
+                    y2="13.8232"
+                    stroke="#7A7A7A"
+                    stroke-width="0.5"
+                  />
+                </svg>
+              </div>
+              <ul id="applianceSelected"></ul>
+              <ul id="appliance"></ul>
+            </div>
+          </li>
+          <li class="dropdown">
+            <button class="dropbtn">
+              Ustensiles
+              <span class="arrow-down"></span>
+            </button>
+            <div class="dropdown-content">
+              <div class="input-group">
+                <input type="text" name="utensilField" />
+                <svg
+                  class="croce"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="5"
+                    cy="5"
+                    r="4.75"
+                    stroke="#7A7A7A"
+                    stroke-width="0.5"
+                  />
+                  <line
+                    x1="9.17678"
+                    y1="9.32322"
+                    x2="13.6768"
+                    y2="13.8232"
+                    stroke="#7A7A7A"
+                    stroke-width="0.5"
+                  />
+                </svg>
+              </div>
+              <ul id="utensilSelected"></ul>
+              <ul id="utensil"></ul>
+            </div>
+          </li>
+        </ul>
+        <b id="totalRecipes">0 recettes</b>
+      </nav>
+      <section id="badgesContainer" class="px-5 py-5"></section>
+      <section
+        class="row row-cols-1 row-cols-md-3 g-5 px-5 pb-5"
+        id="recipes"
+      ></section>
+    </main>
 
-      <div id="filters-zone" class="mt-3">
-        <div class="d-lg-flex accordion" id="accordionFilterTags">
-          <div class="accordion-item me-lg-5">
-            <div class="accordion-header" id="headingOne">
-              <div
-                id="ingredientButtonHeader"
-                class="filter_button accordion-button collapsed"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-                role="combobox"
-              >
-                <label
-                  id="ingredientSearchLabel"
-                  for="ingredient-input"
-                  class="sr-only"
-                  >Recherche par ingrédient</label
-                >
-                <input
-                  id="ingredient-input"
-                  class="form-control text-black"
-                  type="text"
-                  placeholder="Ingredients"
-                  aria-labelledby="ingredientSearchLabel"
-                />
-              </div>
-            </div>
-            <div
-              id="collapseOne"
-              class="accordion-collapse collapse"
-              aria-labelledby="headingOne"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <ul id="ingredientsList"></ul>
-              </div>
-            </div>
+    <script src="scripts/index.js" type="module"></script>
+    <template id="recipeCard">
+      <div class="col">
+        <div class="card">
+          <img class="card-img-top" />
+          <div class="card-img-overlay d-flex justify-content-end">
+            <span class="badge"></span>
           </div>
-          <div class="accordion-item me-lg-5 mt-3 mt-lg-0">
-            <div class="accordion-header" id="headingTwo">
-              <div
-                id="applianceButtonHeader"
-                class="filter_button accordion-button collapsed"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo"
-                aria-expanded="false"
-                aria-controls="collapseTwo"
-                role="combobox"
-              >
-                <label
-                  id="applianceSearchLabel"
-                  for="appliance-input"
-                  class="sr-only"
-                  >Recherche par appareil</label
-                >
-                <input
-                  id="appliance-input"
-                  class="form-control text-black"
-                  type="text"
-                  placeholder="Appareils"
-                  aria-labelledby="applianceSearchLabel"
-                />
-              </div>
-            </div>
-            <div
-              id="collapseTwo"
-              class="accordion-collapse collapse"
-              aria-labelledby="headingTwo"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <ul id="appliancesList"></ul>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item mt-3 mt-lg-0">
-            <div class="accordion-header" id="headingThree">
-              <div
-                id="ustensilsButtonHeader"
-                class="filter_button accordion-button collapsed"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseThree"
-                aria-expanded="false"
-                aria-controls="collapseThree"
-                role="combobox"
-              >
-                <label
-                  id="ustensilsSearchLabel"
-                  for="ustensils-input"
-                  class="sr-only"
-                  >Recherche par ustensile</label
-                >
-                <input
-                  id="ustensils-input"
-                  class="form-control text-black"
-                  type="text"
-                  placeholder="Ustensiles"
-                  aria-labelledby="ustensilsSearchLabel"
-                />
-              </div>
-            </div>
-            <div
-              id="collapseThree"
-              class="accordion-collapse collapse"
-              aria-labelledby="headingThree"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <ul id="ustensilsList"></ul>
-              </div>
-            </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <span class="card-subtitle">Recette</span>
+            <p class="card-text"></p>
+            <span class="card-subtitle">Ingrédients</span>
+            <ul id="ingredientsList"></ul>
           </div>
         </div>
       </div>
-
-      <section
-        id="recipes-zone"
-        class="mt-3 row g-5"
-        aria-label="liste des recettes"
-      ></section>
-    </main>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./index.js" type="module"></script>
-    <script
-      src="./scripts/controller/recipeController.js"
-      type="module"
-    ></script>
+    </template>
   </body>
 </html>
