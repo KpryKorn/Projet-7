@@ -1,4 +1,4 @@
-// Retourne un tableau des ingrédients uniques en minuscules
+// Retourne un tableau de tous les ingrédients uniques du fichier data des recettes
 function getUniqueIngredients(recipes) {
   const allIngredients = new Set();
   recipes.forEach((recipe) => {
@@ -9,7 +9,7 @@ function getUniqueIngredients(recipes) {
   return Array.from(allIngredients);
 }
 
-// Retourne un tableau des appareils uniques en minuscules
+// pareil pour les appareils
 function getUniqueAppliances(recipes) {
   const allAppliances = new Set();
   recipes.forEach((recipe) => {
@@ -18,7 +18,7 @@ function getUniqueAppliances(recipes) {
   return Array.from(allAppliances);
 }
 
-// Retourne un tableau des ustensiles uniques en minuscules
+// pareil pour les ustensiles
 function getUniqueUtensils(recipes) {
   const allUtensils = new Set();
   recipes.forEach((recipe) => {

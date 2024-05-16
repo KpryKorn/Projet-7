@@ -12,10 +12,9 @@ function getInitialRecipes() {
 
 function init() {
   getInitialRecipes();
-  getUniqueIngredients(getInitialRecipes());
+  getUniqueIngredients(getInitialRecipes()); // récupère les ingrédients, basés sur le tableau inital de recettes, etc
   getUniqueAppliances(getInitialRecipes());
   getUniqueUtensils(getInitialRecipes());
-  // Affichage initial des recettes
   displayRecipes(getInitialRecipes());
 }
 
