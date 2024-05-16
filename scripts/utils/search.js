@@ -1,3 +1,5 @@
+import { displayRecipes } from "../ui/display.js";
+
 function searchByQuery(recipes, query) {
   if (query.length <= 2) return recipes; // vérifie si la query fait au moins 2 caractères
 
@@ -11,7 +13,7 @@ function searchByQuery(recipes, query) {
       recipe.description.toLowerCase().includes(query.toLowerCase())
     );
   });
-  return filteredRecipes;
+  displayRecipes(filteredRecipes);
 }
 
 export { searchByQuery };
