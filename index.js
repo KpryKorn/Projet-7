@@ -1,12 +1,11 @@
-import { recipes } from "../data/recipes.js";
-import { displayRecipes } from "./ui/display.js";
+import { recipes } from "./data/recipes.js";
+import { displayRecipes } from "./scripts/ui/display.js";
 import {
   getUniqueIngredients,
   getUniqueAppliances,
   getUniqueUtensils,
-} from "./utils/filters.js";
+} from "./scripts/utils/filters.js";
 
-// Récupération des recettes initiales
 function getInitialRecipes() {
   return recipes;
 }
