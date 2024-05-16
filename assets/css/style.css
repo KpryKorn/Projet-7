@@ -21,6 +21,10 @@ body {
   height: calc(min(100vh, 25.26px));
 }
 
+.row {
+  margin-right: 0;
+}
+
 .bg-img {
   background-image: url(../img/banner.png);
   background-size: cover;
@@ -115,7 +119,7 @@ input[type="search"]::-webkit-search-results-decoration {
   line-height: 32px;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 48px;
 }
 
 .navigation-bar {
