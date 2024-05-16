@@ -16,8 +16,9 @@ function displayRecipes(recipes) {
       clone.querySelector(".badge").textContent = `${recipe.time} min`;
       clone.querySelector(".card-title").textContent = recipe.name;
       clone.querySelector(".card-text").textContent = recipe.description;
+
+      // Afficher les ingrédients de la recette dans le DOM
       const ingredientsListElement = clone.querySelector("#ingredientsList");
-      // Parcourir les ingrédients
       recipe.ingredients.forEach((ingredient) => {
         const listItem = document.createElement("li");
         listItem.innerHTML = `${ingredient.ingredient}: ${
