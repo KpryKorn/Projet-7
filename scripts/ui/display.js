@@ -1,10 +1,10 @@
+import { displayCount } from "./recipesCount";
+
 function displayRecipes(recipes) {
   const template = document.querySelector("#recipeCard");
   const container = document.querySelector("#recipes");
   container.innerHTML = "";
-  document.getElementById(
-    "totalRecipes"
-  ).textContent = `${recipes.length} recettes`;
+  displayCount(recipes);
 
   if (recipes.length > 0) {
     recipes.forEach((recipe) => {
@@ -17,7 +17,7 @@ function displayRecipes(recipes) {
       clone.querySelector(".card-title").textContent = recipe.name;
       clone.querySelector(".card-text").textContent = recipe.description;
 
-      // Afficher les ingrédients de la recette dans le DOM
+      // Afficher les ingrédients de la recette dans le DOM de la carte
       const ingredientsListElement = clone.querySelector("#ingredientsList");
       recipe.ingredients.forEach((ingredient) => {
         const listItem = document.createElement("li");
