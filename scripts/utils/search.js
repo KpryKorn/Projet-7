@@ -1,7 +1,7 @@
 import { displayRecipes } from "../ui/display.js";
 
 function searchByQuery(recipes, query) {
-  if (query.length <= 2) return recipes; // vérifie si la query fait au moins 2 caractères
+  if (query.length < 3) return recipes; // vérifie si la query fait au moins 3 caractères
 
   const filteredRecipes = recipes.filter((recipe) => {
     return (
