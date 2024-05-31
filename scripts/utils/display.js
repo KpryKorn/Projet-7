@@ -1,5 +1,5 @@
-import { createRecipeCard } from "./recipesCard.js";
-import { displayCount } from "./recipesCount.js";
+import { createRecipeCard } from "../ui/recipesCard.js";
+import { displayCount } from "../ui/recipesCount.js";
 
 function displayRecipes(recipes) {
   const container = document.querySelector("#recipes");

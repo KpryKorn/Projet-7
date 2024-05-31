@@ -1,4 +1,4 @@
-import { displayRecipes } from "../ui/display.js";
+import { displayRecipes } from "./display.js";
 
 function searchByQuery(recipes, query) {
   if (query.length < 3) return recipes; // vérifie si la query fait au moins 3 caractères
