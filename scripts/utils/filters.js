@@ -29,4 +29,20 @@ function getUniqueUtensils(recipes) {
   return Array.from(allUtensils);
 }
 
-export { getUniqueIngredients, getUniqueAppliances, getUniqueUtensils };
+// renvoie un tableau des ingrédients filtrés sur les recettes de l'input
+function getFilteredIngredients(filteredRecipes) {
+  const allIngredients = new Set();
+  filteredRecipes.forEach((recipe) => {
+    recipe.ingredients.forEach((ingredient) => {
+      allIngredients.add(ingredient.ingredient.toLowerCase());
+    });
+  });
+  return Array.from(allIngredients);
+}
+
+export {
+  getUniqueIngredients,
+  getUniqueAppliances,
+  getUniqueUtensils,
+  getFilteredIngredients,
+};

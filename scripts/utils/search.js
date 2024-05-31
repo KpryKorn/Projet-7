@@ -1,9 +1,12 @@
 import { displayRecipes } from "./display.js";
+import { getFilteredIngredients } from "./filters.js";
+
+let filteredRecipes = [];
 
 function searchByQuery(recipes, query) {
-  if (query.length < 3) return recipes; // vérifie si la query fait au moins 3 caractères
+  if (query.length < 2) return recipes; // vérifie si la query fait au moins 3 caractères
 
-  const filteredRecipes = recipes.filter((recipe) => {
+  filteredRecipes = recipes.filter((recipe) => {
     return (
       // Vérifier si le nom, les ingrédients ou la description de la recette inclut la query
       recipe.name.toLowerCase().includes(query.toLowerCase()) ||
@@ -14,6 +17,11 @@ function searchByQuery(recipes, query) {
     );
   });
   displayRecipes(filteredRecipes);
+  console.log(
+    "Ingrédients des recettes post-filtrage:",
+    getFilteredIngredients(filteredRecipes)
+  );
+  return filteredRecipes;
 }
 
 export { searchByQuery };
