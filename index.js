@@ -20,10 +20,6 @@ function search() {
   // à chaque nouvel input, lance la recherche en fonction de la query
   searchInput.addEventListener("input", (e) => {
     const searchValue = e.target.value;
-    console.log(
-      "Début du filtrage des recettes selon la recherche :",
-      searchValue
-    );
     searchClose.style.display = searchValue ? "block" : "none";
     searchByQuery(recipes, searchValue);
   });
