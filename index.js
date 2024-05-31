@@ -1,5 +1,5 @@
 import { recipes } from "./data/recipes.js";
-import { displayRecipes } from "./scripts/ui/display.js";
+import { displayRecipes } from "./scripts/utils/display.js";
 import {
   getUniqueIngredients,
   getUniqueAppliances,
