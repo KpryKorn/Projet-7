@@ -1,4 +1,4 @@
-function displayCount() {
+function displayCount(recipes) {
   document.getElementById(
     "totalRecipes"
   ).textContent = `${recipes.length} recettes`;

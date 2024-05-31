@@ -1,4 +1,4 @@
-import { displayCount } from "./recipesCount";
+import { displayCount } from "./recipesCount.js";
 
 function displayRecipes(recipes) {
   const template = document.querySelector("#recipeCard");
