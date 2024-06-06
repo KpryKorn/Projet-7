@@ -1,6 +1,6 @@
 import { recipes } from "./data/recipes.js";
 import { displayRecipes } from "./scripts/utils/display.js";
-import { updateDropdownLists } from "./scripts/utils/dropdowns.js";
+import { updateDropdowns } from "./scripts/utils/dropdowns.js";
 import { searchByQuery } from "./scripts/utils/search.js";
 
 function getInitialRecipes() {
@@ -29,7 +29,7 @@ function search() {
 
 function init() {
   getInitialRecipes();
-  updateDropdownLists(getInitialRecipes());
+  updateDropdowns(getInitialRecipes());
   displayRecipes(getInitialRecipes());
 
   search();
