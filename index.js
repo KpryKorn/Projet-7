@@ -1,10 +1,6 @@
 import { recipes } from "./data/recipes.js";
 import { displayRecipes } from "./scripts/utils/display.js";
-import {
-  getUniqueIngredients,
-  getUniqueAppliances,
-  getUniqueUtensils,
-} from "./scripts/utils/filters.js";
+import { updateDropdownLists } from "./scripts/utils/dropdowns.js";
 import { searchByQuery } from "./scripts/utils/search.js";
 
 function getInitialRecipes() {
@@ -33,9 +29,7 @@ function search() {
 
 function init() {
   getInitialRecipes();
-  getUniqueIngredients(getInitialRecipes()); // récupère les ingrédients, basés sur le tableau inital de recettes, etc
-  getUniqueAppliances(getInitialRecipes());
-  getUniqueUtensils(getInitialRecipes());
+  updateDropdownLists(getInitialRecipes());
   displayRecipes(getInitialRecipes());
 
   search();

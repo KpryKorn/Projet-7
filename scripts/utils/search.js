@@ -1,5 +1,5 @@
 import { displayRecipes } from "./display.js";
-import { getFilteredIngredients } from "./filters.js";
+import { updateDropdownLists } from "./dropdowns.js";
 
 let filteredRecipes = [];
 
@@ -17,10 +17,7 @@ function searchByQuery(recipes, query) {
     );
   });
   displayRecipes(filteredRecipes);
-  console.log(
-    "Ingrédients des recettes post-filtrage:",
-    getFilteredIngredients(filteredRecipes)
-  );
+  updateDropdownLists(filteredRecipes);
   return filteredRecipes;
 }
 
