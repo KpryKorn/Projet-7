@@ -1,3 +1,4 @@
+import { createBadge } from "../ui/createBadge.js";
 import {
   getUniqueIngredients,
   getUniqueAppliances,
@@ -24,6 +25,7 @@ function updateDropdownList(items, type, recipes) {
     listItem.addEventListener("click", (e) => {
       let query = e.target.textContent;
       searchByQuery(recipes, query);
+      createBadge(query);
     });
     listElement.appendChild(listItem);
   });
