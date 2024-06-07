@@ -4,7 +4,7 @@ import {
   getUniqueAppliances,
   getUniqueUtensils,
 } from "./filters.js";
-import { searchByQuery } from "./search.js";
+import { searchByTags } from "./search.js";
 
 function updateDropdowns(recipes) {
   const ingredients = getUniqueIngredients(recipes);
@@ -24,7 +24,7 @@ function updateDropdownList(items, type, recipes) {
     listItem.textContent = item;
     listItem.addEventListener("click", (e) => {
       let query = e.target.textContent;
-      searchByQuery(recipes, query);
+      searchByTags(recipes, query, type);
       createBadge(query);
     });
     listElement.appendChild(listItem);

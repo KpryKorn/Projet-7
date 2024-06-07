@@ -23,4 +23,27 @@ function searchByQuery(recipes, query) {
   return filteredRecipes;
 }
 
-export { searchByQuery };
+function searchByTags(recipes, query, type) {
+  filteredRecipes = recipes.filter((recipe) => {
+    switch (type) {
+      case "ingredient":
+        return recipe.ingredients.some((ingredient) =>
+          ingredient.ingredient.toLowerCase().includes(query.toLowerCase())
+        );
+      case "utensil":
+        return recipe.ustensils.some((utensil) =>
+          utensil.toLowerCase().includes(query.toLowerCase())
+        );
+      case "appliance":
+        return recipe.appliance.toLowerCase().includes(query.toLowerCase());
+      default:
+        return false;
+    }
+  });
+  displayRecipes(filteredRecipes);
+  updateDropdowns(filteredRecipes);
+  console.log("query: ", query);
+  console.log("ingrédients: ", filteredRecipes);
+  return filteredRecipes;
+}
+export { searchByQuery, searchByTags };
