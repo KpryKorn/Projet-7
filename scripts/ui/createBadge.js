@@ -1,4 +1,6 @@
-function createBadge(elementDropdownList) {
+import { displayRecipes } from "../utils/display.js";
+
+function createBadge(elementDropdownList, recipes) {
   const badgesContainer = document.getElementById("badgesContainer");
   const badge = document.createElement("div");
   badge.classList.add("badge");
@@ -9,8 +11,10 @@ function createBadge(elementDropdownList) {
   </svg>`;
   badgesContainer.appendChild(badge);
 
+  // Supprimer le badge au clic sur la croix
   badge.querySelector("svg").onclick = function () {
     badgesContainer.removeChild(badge);
+    displayRecipes(recipes);
   };
 }
 

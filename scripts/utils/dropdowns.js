@@ -25,7 +25,7 @@ function updateDropdownList(items, type, recipes) {
     listItem.addEventListener("click", (e) => {
       let query = e.target.textContent;
       searchByTags(recipes, query, type);
-      createBadge(query);
+      createBadge(query, recipes);
     });
     listElement.appendChild(listItem);
   });

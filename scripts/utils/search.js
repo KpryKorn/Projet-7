@@ -24,6 +24,8 @@ function searchByQuery(recipes, query) {
 }
 
 function searchByTags(recipes, query, type) {
+  if (query.length < 2) return recipes;
+
   filteredRecipes = recipes.filter((recipe) => {
     switch (type) {
       case "ingredient":
