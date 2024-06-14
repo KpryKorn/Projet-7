@@ -1,4 +1,5 @@
 import { displayRecipes } from "../utils/display.js";
+import { updateDropdowns } from "../utils/dropdowns.js";
 
 function createBadge(elementDropdownList, recipes) {
   const badgesContainer = document.getElementById("badgesContainer");
@@ -15,6 +16,7 @@ function createBadge(elementDropdownList, recipes) {
   badge.querySelector("svg").onclick = function () {
     badgesContainer.removeChild(badge);
     displayRecipes(recipes);
+    updateDropdowns(recipes);
   };
 }
 
