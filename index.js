@@ -3,7 +3,7 @@ import { displayRecipes } from "./scripts/utils/display.js";
 import { updateDropdowns } from "./scripts/utils/dropdowns.js";
 import { searchByQuery } from "./scripts/utils/search.js";
 
-function getInitialRecipes() {
+export function getInitialRecipes() {
   return recipes;
 }
 
@@ -23,7 +23,7 @@ function search() {
   searchClose.addEventListener("click", () => {
     searchInput.value = "";
     searchClose.style.display = "none";
-    displayRecipes(getInitialRecipes());
+    displayRecipes(recipes);
   });
 }
 

@@ -1,7 +1,10 @@
 import { displayRecipes } from "../utils/display.js";
 import { updateDropdowns } from "../utils/dropdowns.js";
+import { filteredRecipes, searchByTags } from "../utils/search.js";
 
-function createBadge(elementDropdownList, recipes) {
+let selectedTags = [];
+
+function createBadge(elementDropdownList, type, recipes) {
   const badgesContainer = document.getElementById("badgesContainer");
   const badge = document.createElement("div");
   badge.classList.add("badge");
@@ -12,11 +15,29 @@ function createBadge(elementDropdownList, recipes) {
   </svg>`;
   badgesContainer.appendChild(badge);
 
-  // Supprimer le badge au clic sur la croix
+  selectedTags.push({ value: elementDropdownList, type: type });
+
+  const originalRecipes = [...recipes];
+
   badge.querySelector("svg").onclick = function () {
     badgesContainer.removeChild(badge);
-    displayRecipes(recipes);
-    updateDropdowns(recipes);
+    console.log("selectedTags avant: ", selectedTags);
+
+    // Supprimer le tag de la liste des tags sélectionnés
+    const index = selectedTags.findIndex(
+      (tag) => tag.value === elementDropdownList && tag.type === type
+    );
+    if (index > -1) {
+      selectedTags.splice(index, 1);
+    }
+
+    // Relancer la recherche avec les tags restants
+    console.log("recipes: ", recipes);
+    console.log("selectedTags après: ", selectedTags);
+    console.log("type: ", type);
+
+    const filteredRecipes = searchByTags(originalRecipes, selectedTags, type);
+    displayRecipes(filteredRecipes);
   };
 }
 

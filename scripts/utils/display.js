@@ -2,6 +2,7 @@ import { createRecipeCard } from "../ui/recipesCard.js";
 import { displayCount } from "../ui/recipesCount.js";
 
 function displayRecipes(recipes) {
+  console.log("displayRecipes - recipes: ", recipes);
   const container = document.querySelector("#recipes");
   container.innerHTML = "";
   displayCount(recipes);
