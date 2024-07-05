@@ -1,8 +1,50 @@
 import { getInitialRecipes } from "../../index.js";
+import {
+  getUniqueIngredients,
+  getUniqueAppliances,
+  getUniqueUtensils,
+} from "./filters.js";
 import { displayRecipes } from "./display.js";
-import { updateDropdowns } from "./dropdowns.js";
+import { updateDropdowns, updateDropdownList } from "./dropdowns.js";
 
 let filteredRecipes = [];
+
+function searchIngredient(recipes) {
+  const input = document.querySelector('input[name="ingredientField"]');
+  const uniqueIngredients = getUniqueIngredients(recipes);
+
+  input.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const results = uniqueIngredients.filter((ingredient) =>
+      ingredient.includes(query)
+    );
+    updateDropdownList(results, "ingredient", recipes);
+  });
+}
+
+function searchAppliance(recipes) {
+  const input = document.querySelector('input[name="applianceField"]');
+  const uniqueAppliances = getUniqueAppliances(recipes);
+
+  input.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const results = uniqueAppliances.filter((appliance) =>
+      appliance.includes(query)
+    );
+    updateDropdownList(results, "appliance", recipes);
+  });
+}
+
+function searchUtensil(recipes) {
+  const input = document.querySelector('input[name="utensilField"]');
+  const uniqueUtensils = getUniqueUtensils(recipes);
+
+  input.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const results = uniqueUtensils.filter((utensil) => utensil.includes(query));
+    updateDropdownList(results, "utensil", recipes);
+  });
+}
 
 function searchByQuery(recipes, query) {
   if (query.length < 3 || query.length <= 1) return recipes; // FIX: soit on saisi rien, soit 3 caractères
@@ -25,7 +67,6 @@ function searchByQuery(recipes, query) {
 }
 
 function searchByTags(recipes, selectedTags, type) {
-  // Si selectedTags est une chaîne de caractères, la convertir en un tableau à un seul élément
   if (typeof selectedTags === "string") {
     selectedTags = [{ value: selectedTags, type: type }];
   }
@@ -57,12 +98,15 @@ function searchByTags(recipes, selectedTags, type) {
     });
   });
 
-  console.log("searchByTags - recipes: ", recipes);
-  console.log("searchByTags - selectedTags: ", selectedTags);
-  console.log("searchByTags - type: ", type);
-
+  searchIngredient(filteredRecipes);
+  searchAppliance(filteredRecipes);
+  searchUtensil(filteredRecipes);
   displayRecipes(filteredRecipes);
   updateDropdowns(filteredRecipes);
   return filteredRecipes;
 }
+
+searchIngredient(getInitialRecipes());
+searchAppliance(getInitialRecipes());
+searchUtensil(getInitialRecipes());
 export { searchByQuery, searchByTags, filteredRecipes };
