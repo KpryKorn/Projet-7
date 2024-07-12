@@ -46,10 +46,14 @@ function searchUtensil(recipes) {
   });
 }
 
-function searchByQuery(recipes, query) {
-  if (query.length < 3 || query.length <= 1) return recipes; // FIX: soit on saisi rien, soit 3 caractères
+function searchByQuery(query) {
+  let recipesToSearch =
+    JSON.parse(sessionStorage.getItem("filteredRecipes")) ||
+    getInitialRecipes();
 
-  filteredRecipes = recipes.filter((recipe) => {
+  if (query.length < 3 || query.length <= 1) return recipesToSearch; // FIX: soit on saisi rien, soit 3 caractères
+
+  let filtered = recipesToSearch.filter((recipe) => {
     return (
       // Vérifier si le nom, les ingrédients ou la description de la recette inclut la query
       recipe.name.toLowerCase().includes(query.toLowerCase()) ||
@@ -59,11 +63,9 @@ function searchByQuery(recipes, query) {
       recipe.description.toLowerCase().includes(query.toLowerCase())
     );
   });
-  displayRecipes(filteredRecipes);
-  updateDropdowns(filteredRecipes);
-  console.log("query: ", query);
-  console.log("recettes: ", filteredRecipes);
-  return filteredRecipes;
+  displayRecipes(filtered);
+  updateDropdowns(filtered);
+  return filtered;
 }
 
 function searchByTags(recipes, selectedTags, type) {
@@ -98,6 +100,7 @@ function searchByTags(recipes, selectedTags, type) {
     });
   });
 
+  sessionStorage.setItem("filteredRecipes", JSON.stringify(filteredRecipes));
   searchIngredient(filteredRecipes);
   searchAppliance(filteredRecipes);
   searchUtensil(filteredRecipes);

@@ -1,11 +1,7 @@
 import { recipes } from "./data/recipes.js";
 import { displayRecipes } from "./scripts/utils/display.js";
-import {
-  updateDropdownList,
-  updateDropdowns,
-} from "./scripts/utils/dropdowns.js";
-import { searchByQuery, searchByTags } from "./scripts/utils/search.js";
-import { getUniqueIngredients } from "./scripts/utils/filters.js";
+import { updateDropdowns } from "./scripts/utils/dropdowns.js";
+import { filteredRecipes, searchByQuery } from "./scripts/utils/search.js";
 
 export function getInitialRecipes() {
   return recipes;
@@ -22,7 +18,7 @@ function search() {
     let searchValue = e.target.value;
     searchValue = searchValue.replace(/[^\w\s]/gi, "");
     searchClose.style.display = searchValue ? "block" : "none";
-    searchByQuery(recipes, searchValue);
+    searchByQuery(searchValue);
   });
 
   searchClose.addEventListener("click", () => {
