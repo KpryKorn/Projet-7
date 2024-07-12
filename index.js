@@ -19,7 +19,8 @@ function search() {
   searchClose.style.display = searchInput.value ? "block" : "none";
   // à chaque nouvel input, lance la recherche en fonction de la query
   searchInput.addEventListener("input", (e) => {
-    const searchValue = e.target.value;
+    let searchValue = e.target.value;
+    searchValue = searchValue.replace(/[^\w\s]/gi, "");
     searchClose.style.display = searchValue ? "block" : "none";
     searchByQuery(recipes, searchValue);
   });
@@ -30,7 +31,6 @@ function search() {
     displayRecipes(recipes);
   });
 }
-
 function init() {
   getInitialRecipes();
   updateDropdowns(getInitialRecipes());
