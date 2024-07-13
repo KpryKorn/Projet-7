@@ -1,7 +1,7 @@
 import { recipes } from "./data/recipes.js";
 import { displayRecipes } from "./scripts/utils/display.js";
 import { updateDropdowns } from "./scripts/utils/dropdowns.js";
-import { filteredRecipes, searchByQuery } from "./scripts/utils/search.js";
+import { searchByQuery } from "./scripts/utils/search.js";
 
 export function getInitialRecipes() {
   return recipes;

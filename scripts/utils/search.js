@@ -18,7 +18,13 @@ function searchIngredient(recipes) {
     const results = uniqueIngredients.filter((ingredient) =>
       ingredient.includes(query)
     );
-    updateDropdownList(results, "ingredient", recipes);
+    const filteredRecipes = recipes.filter((recipe) =>
+      recipe.ingredients.some((ingredient) =>
+        ingredient.ingredient.toLowerCase().includes(query)
+      )
+    );
+    sessionStorage.setItem("filteredRecipes", JSON.stringify(filteredRecipes));
+    updateDropdownList(results, "ingredient", filteredRecipes);
   });
 }
 
@@ -31,7 +37,11 @@ function searchAppliance(recipes) {
     const results = uniqueAppliances.filter((appliance) =>
       appliance.includes(query)
     );
-    updateDropdownList(results, "appliance", recipes);
+    const filteredRecipes = recipes.filter((recipe) =>
+      recipe.appliance.toLowerCase().includes(query)
+    );
+    sessionStorage.setItem("filteredRecipes", JSON.stringify(filteredRecipes));
+    updateDropdownList(results, "appliance", filteredRecipes);
   });
 }
 
@@ -42,7 +52,11 @@ function searchUtensil(recipes) {
   input.addEventListener("input", function () {
     const query = this.value.toLowerCase();
     const results = uniqueUtensils.filter((utensil) => utensil.includes(query));
-    updateDropdownList(results, "utensil", recipes);
+    const filteredRecipes = recipes.filter((recipe) =>
+      recipe.ustensils.some((utensil) => utensil.toLowerCase().includes(query))
+    );
+    sessionStorage.setItem("filteredRecipes", JSON.stringify(filteredRecipes));
+    updateDropdownList(results, "utensil", filteredRecipes);
   });
 }
 
